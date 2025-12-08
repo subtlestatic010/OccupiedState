@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE VAULT – Occupied State</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>THE VAULT</h1>
+        <p class="tagline">Primary sources the regime classified, burned, or memory-holed.<br>We mirrored them. Forever.</p>
+        <nav class="topnav">
+            <a href="index.html">← DISPATCHES</a>
+        </nav>
+    </header>
+
+    <main class="vault-grid" id="vault-grid"></main>
+
+    <footer>
+        <p>All files hosted on decentralized mirrors • If one dies, ten more rise</p>
+    </footer>
+
+    <script>
+        const vault = [
+            {
+                title: "Operation Northwoods (1962) – Declassified False-Flag Plan",
+                desc: "U.S. military proposal to commit terror attacks on Americans and blame Cuba.",
+                file: "https://nsarchive2.gwu.edu/news/20010430/northwoods.pdf",
+                size: "1.2 MB"
+            },
+            {
+                title: "The Franklin Cover-Up – John DeCamp (1992)",
+                desc: "Elite child-trafficking network reaching the White House. Witnesses suicided.",
+                file: "https://archive.org/details/TheFranklinCover-upByFormerGreenBeretJohnDecamp",
+                size: "14 MB"
+            },
+            {
+                title: "FBI COINTELPRO Coloring Book (1968 forgery)",
+                desc: "FBI-created racist propaganda mailed to white neighborhoods to inflame division.",
+                file: "https://archive.org/details/BlackPantherColoringBook",
+                size: "3.7 MB"
+            },
+            {
+                title: "The Protocols of the Learned Elders of Zion – 1903 English Translation",
+                desc: "The most banned book in history. Read the source text yourself.",
+                file: "https://archive.org/details/protocols-of-learned-elders-of-zion-hq-62-40827/page/n1/mode/2up",
+                size: "890 KB"
+            },
+            {
+                title: "MK-ULTRA Complete Document CIA MORI 187774",
+                desc: "Full index of every MK-ULTRA subproject, human experiments, and LSD logs.",
+                file: "https://www.esd.whs.mil/Portals/54/Documents/FOID/Reading%20Room/NCB/02-A-0846_RELEASE.pdf",
+                size: "28 MB"
+            },
+            {
+                title: "Epstein Flight Logs – Unredacted (2015)",
+                desc: "Every flight, every passenger, every trip to the island.",
+                file: "https://archive.org/details/6404379-Epstein-Flight-Logs-Lolita-Express",
+                size: "6.4 MB"
+            },
+            {
+                title: "The Turner Diaries – Earl Turner (1978)",
+                desc: "The novel that terrified three letter agencies more than any other.",
+                file: "https://archive.org/details/the-turner-diaries_202412",
+                size: "1.1 MB"
+            }
+        ];
+
+        const grid = document.getElementById('vault-grid');
+
+        vault.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'vault-item';
+            div.innerHTML = `
+                <h3>${item.title}</h3>
+                <p class="desc">${item.desc}</p>
+                <p class="meta">${item.size} • <a href="${item.file}" target="_blank">DOWNLOAD / OPEN →</a></p>
+            `;
+            grid.appendChild(div);
+        });
+    </script>
+
+    <style>
+        .vault-grid { max-width: 1100px; margin: 4rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; }
+        .vault-item { background: rgba(0,255,0,0.05); border: 1px solid #0f0; padding: 2rem; transition: .4s; }
+        .vault-item:hover { background: rgba(0,255,0,0.15); box-shadow: 0 0 30px rgba(0,255,0,0.4); transform: translateY(-8px); }
+        .vault-item h3 { color: #0f0; margin-bottom: 1rem; text-shadow: 0 0 10px #0f0; }
+        .vault-item .desc { color: #8f8; line-height: 1.5; }
+        .vault-item .meta { color: #0a8; margin-top: 1rem; }
+        .vault-item a { color: #0f0; font-weight: bold; text-decoration: none; }
+        .vault-item a:hover { text-shadow: 0 0 15px #0f0; }
+    </style>
+</body>
+</html>

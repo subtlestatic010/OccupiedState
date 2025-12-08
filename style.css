@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Share+Tech+Mono&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    background: #000;
+    color: #0f0;
+    font-family: 'Share Tech Mono', monospace;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    border-bottom: 3px solid #0f0;
+    padding-bottom: 2rem;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5rem;
+    color: #0f0;
+    text-shadow: 0 0 20px #0f0;
+    letter-spacing: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.4rem;
+    color: #0f9;
+    margin-top: 1rem;
+}
+
+.articles {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #0f0;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 0 10px #0f0;
+}
+
+ul#article-list {
+    list-style: none;
+}
+
+li.article {
+    background: rgba(0,255,0,0.03);
+    border-left: 4px solid #0f0;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+}
+
+li.article:hover {
+    background: rgba(0,255,0,0.08);
+    box-shadow: 0 0 15px rgba(0,255,0,0.3);
+}
+
+.article h3 {
+    font-size: 1.8rem;
+    color: #0f0;
+}
+
+.article .date {
+    color: #0b8;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.article p.preview {
+    color: #af9;
+}
+
+.article a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.article a:hover {
+    text-shadow: 0 0 10px #0f0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px dashed #0f0;
+    color: #0a6;
+    font-size: 0.9rem;
+}
+.topnav {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+}
+
+.topnav a {
+    color: #0f0;
+    text-decoration: none;
+    margin: 0 2rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    transition: all 0.4s;
+}
+
+.topnav a:hover {
+    border: 2px solid #0f0;
+    background: rgba(0,255,0,0.1);
+    box-shadow: 0 0 20px #0f0;
+    text-shadow: 0 0 15px #0f0;
+}
+/* RESPONSIVE NAV - Mobile collapse to hamburger */
+@media screen and (max-width: 768px) {
+    .topnav {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    }
+    
+    .topnav .menu-icon {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #0f0;
+        text-shadow: 0 0 10px #0f0;
+        padding: 0.5rem;
+        transition: all 0.3s;
+    }
+    
+    .topnav .menu-icon:hover {
+        text-shadow: 0 0 20px #0f0;
+    }
+    
+    .topnav .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin-top: 1rem;
+        background: rgba(0,0,0,0.95);
+        border: 2px solid #0f0;
+        box-shadow: 0 0 20px rgba(0,255,0,0.3);
+    }
+    
+    .topnav .nav-links.active {
+        display: flex; /* Show when toggled */
+    }
+    
+    .topnav .nav-links a {
+        margin: 0;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(0,255,0,0.2);
+        text-align: center;
+        width: 100%;
+        transition: all 0.3s;
+    }
+    
+    .topnav .nav-links a:last-child {
+        border-bottom: none;
+    }
+    
+    .topnav .nav-links a:hover {
+        background: rgba(0,255,0,0.2);
+        box-shadow: none; /* Override desktop hover for mobile stack */
+    }
+    
+    /* Stack desktop links horizontally above 768px - already good, but reinforce */
+    @media screen and (min-width: 769px) {
+        .topnav .menu-icon { display: none; }
+        .topnav .nav-links { 
+            display: flex !important; 
+            flex-direction: row; 
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .topnav .nav-links a { 
+            margin: 0 1rem; 
+            padding: 0.5rem 1rem; 
+            border: 2px solid transparent;
+        }
+    }
+}
+
+/* Glow pulse for mobile menu open */
+@keyframes menuPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0,255,0,0.3); }
+    50% { box-shadow: 0 0 30px rgba(0,255,0,0.6); }
+}
+
+.topnav .nav-links.active {
+    animation: menuPulse 2s infinite;
+}

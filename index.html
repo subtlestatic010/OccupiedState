@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Occupied State – Dispatches from inside the digital concentration camp. No masters. No mercy.">
+    <title>Occupied State</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☭</text></svg>">
+</head>
+<body>
+    <header>
+        <h1>OCCUPIED STATE</h1>
+        <p class="tagline">They took the country. We're taking it back.</p>
+
+      <nav>
+    <a href="index.html">Home</a> |
+    <a href="vault.html">Vault</a> |
+    <a href="analysis.html">Analysis</a> |
+    <a href="timeline.html">Timeline</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="call.html">Call</a> |
+    <a href="about.html">About</a>
+</nav>
+    </header>
+
+    <main>
+        <section class="articles">
+            <h2>Latest Dispatches</h2>
+
+            <!-- SEARCH BAR -->
+            <input type="text" id="search-box" placeholder="Search dispatches…" autocomplete="off">
+
+            <ul id="article-list">
+                <!-- Filled by script.js -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>No cookies • No trackers • No surrender</p>
+        <p>Hosted on liberated infrastructure • 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <style>
+        #search-box {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto 3rem;
+            display: block;
+            padding: 1rem 1.5rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            background: rgba(0,255,0,0.05);
+            border: 2px solid #0f0;
+            color: #0f0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,255,0,0.3);
+            transition: all 0.3s;
+        }
+        #search-box:focus {
+            outline: none;
+            box-shadow: 0 0 30px rgba(0,255,0,0.6);
+            background: rgba(0,255,0,0.1);
+        }
+        #search-box::placeholder {
+            color: #0a8;
+        }
+    </style>
+</body>
+</html>
