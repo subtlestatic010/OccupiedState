@@ -3,26 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call to Action | Occupied State</title>
+    <title>CALL TO ACTION | Occupied State</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .call { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; color:#ccc; }
+        .call h2, .call h3 { color:#0f0; text-shadow:0 0 15px #0f0; margin-top:3rem; }
+        .call .warning { color:#f00; font-size:2.2rem; text-align:center; margin:4rem 0; text-shadow:0 0 15px #f00; }
+        .call code, .call pre { background:#000; padding:1rem; border:1px solid #0f0; overflow-x:auto; margin:1.5rem 0; font-size:0.95rem; }
+        .call a { color:#0f0; text-decoration:underline; }
+        .call a:hover { text-shadow:0 0 15px #0f0; }
+        .call .flyer { background:#000; color:#0f0; padding:2rem; margin:2rem 0; border:3px double #0f0; text-align:center; page-break-inside:avoid; }
+        .call .flyer h3 { margin:0; font-size:2rem; }
+        .call .qr { width:200px; height:200px; margin:1rem auto; }
+        @media print { body { background:#000; color:#0f0; } .call { max-width:none; } }
+    </style>
 </head>
 <body>
     <header>
         <h1>CALL TO ACTION</h1>
         <nav>
-            <a href="index.html">Home</a> | <a href="vault.html">Vault</a> | <a href="analysis.html">Analysis</a> | <a href="timeline.html">Timeline</a> | <a href="blog.html">Blog</a> | <a href="call.html">Call</a> | <a href="about.html">About</a>
+            <a href="index.html">Home</a> | <a href="vault.html">Vault</a> | <a href="analysis.html">Analysis</a> |
+            <a href="timeline.html">Timeline</a> | <a href="blog.html">Blog</a> | <a href="call.html">Call</a> | <a href="about.html">About</a>
         </nav>
     </header>
-    <main style="max-width:900px;margin:0 auto;padding:2rem;">
-        <h2>The leaks are the spark. You are the accelerant.</h2>
-        <ul>
-            <0x09><li>File FOIA requests on every "sponsor" address in your state.</li>
-            <0x09><li>Mirror this entire repo on your own GitHub right now.</li>
-            <0x09><li>Run the numbers locally. Build the maps. Make them choke on their own data.</li>
-            <0x09><li>Send tips, leaks, scrubbed files → subtlestatic@protonmail.com (PGP welcomed)</li>
-        </ul>
-        <h3>They fear the archive more than the rifle.</h3>
-        <p>Keep copying. Keep seeding. Keep the fire alive.</p>
+
+    <main class="call">
+
+        <p class="warning">
+            THE LEAKS ARE THE SPARK.<br>
+            YOU ARE THE ACCELERANT.
+        </p>
+
+        <h2>1. Mirror This Site — Tonight</h2>
+        <pre><code>git clone https://github.com/subtlestatic010/OccupiedState.git
+cd OccupiedState
+git remote set-url origin https://github.com/YOURNAME/OccupiedState-mirror.git
+git push -u origin main</code></pre>
+        <p>Or just click “Fork” on GitHub. 3 seconds.</p>
+
+        <h2>2. Ready-to-File FOIA Templates (Copy-Paste → Send)</h2>
+
+        <h3>Template A – HHS Unaccompanied Children Sponsors in Your County</h3>
+        <pre><code>To: foia@hhs.gov
+Subject: FOIA Request – UAC Sponsor Addresses [YOUR COUNTY, STATE] FY2021-2025
+
+Pursuant to FOIA, I request all records containing street-level addresses (or census block if redacted) of sponsors who received unaccompanied alien children in [YOUR COUNTY], [STATE] from FY2021-present. Include number of children per address and vetting status. Fee waiver requested in the public interest.</code></pre>
+
+        <h3>Template B – CBP Camera Override / 11-Minute Blackouts</h3>
+        <pre><code>To: cbpfoia@cbp.dhs.gov
+Subject: FOIA Request – Camera Reboot / Override Logs Southwest Border FY2021-2025
+
+All logs, emails, and incident reports referencing “camera reboot,” “11-minute blackout,” “override code,” “sensor deactivation,” or “scheduled maintenance” coinciding with known migrant crossing events at the southwest border, FY2021-present.</code></pre>
+
+        <h3>Template C – NGO Bounty Payments</h3>
+        <pre><code>To: foia@ice.dhs.gov, ssp@fema.dhs.gov
+Subject: FOIA Request – Shelter and Services Program Grants FY2023-2025
+
+All contracts, payment records, and per-migrant reimbursement rates issued under FEMA’s Shelter and Services Program (SSP) and any predecessor programs to NGOs including Catholic Charities, Endeavors, Lutheran Immigration, HIAS, Southwest Key.</code></pre>
+
+        <h2>3. Printable One-Page Flyers (Ctrl+P → 4 per sheet)</h2>
+
+        <div class="flyer">
+            <h3>470,000 CHILDREN</h3>
+            <p>HHS lost contact with 85,000+ minors.<br>The rest were delivered to unvetted addresses.</p>
+            <p><strong>This is not incompetence.<br>This is deployment.</strong></p>
+            <div class="qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
+        </div>
+
+        <div class="flyer">
+            <h3>$6,800 PER HEAD</h3>
+            <p>NGOs received $4.7 billion to transport migrants.<br>Catholic Charities made more from taxpayers than from church plates.</p>
+            <p><strong>Your taxes fund replacement.</strong></p>
+            <div class="qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
+        </div>
+
+        <div class="flyer">
+            <h3>2 MILLION GOT-AWAYS</h3>
+            <p>Undetected crossings since 2021.<br>Cameras “reboot” when caravans walk through.</p>
+            <p><strong>The wall blinks on command.</strong></p>
+            <div class="qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState/vault.html" alt="QR"></div>
+        </div>
+
+        <h2>4. Leak Dead-Drop — Zero Trace</h2>
+        <pre><code>Tor Browser → subtlestatic@tutamail.com (PGP welcome)
+
+or open an anonymous issue:
+https://github.com/subtlestatic010/OccupiedState/issues/new?template=leak.yml</code></pre>
+
+        <p class="warning">
+            THEY FEAR THE ARCHIVE MORE THAN THE RIFLE.<br>
+            BULLETS RUN OUT.<br>
+            TRUTH REPLICATES FOREVER.
+        </p>
+
     </main>
+
+    <footer>
+        <p>No cookies • No trackers • No surrender</p>
+    </footer>
 </body>
 </html>
