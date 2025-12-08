@@ -7,186 +7,67 @@
     <title>Occupied State</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☭</text></svg>">
-    <style>
-        body { margin:0; background:#000; overflow-x:hidden; font-family:monospace; }
-        .hero {
-            position:relative;
-            min-height:100vh;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            overflow:hidden;
-        }
-        .scanlines {
-            pointer-events:none;
-            position:absolute;
-            top:0; left:0; right:0; bottom:0;
-            background:linear-gradient(transparent 50%, rgba(0,255,0,0.03) 50%);
-            background-size:100% 4px;
-            z-index:1;
-            animation:scan 8s linear infinite;
-        }
-        .glitch {
-            pointer-events:none;
-            position:absolute;
-            top:0; left:0; right:0; bottom:0;
-            background:transparent;
-            z-index:2;
-            opacity:0;
-        }
-        body.glitching .glitch {
-            background:repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,255,0,0.1) 10px, rgba(0,255,0,0.1) 20px);
-            animation:glitch 0.3s linear 3;
-            opacity:1;
-        }
-        @keyframes scan { 0% { transform:translateY(-100%); } 100% { transform:translateY(100%); } }
-        @keyframes glitch { 0%,100% { transform:translate(0); } 20% { transform:translate(-5px,5px); } 40% { transform:translate(5px,-5px); } 60% { transform:translate(-5px,5px); } 80% { transform:translate(5px,-5px); } }
-
-        h1 {
-            font-size:7rem;
-            color:#0f0;
-            text-shadow:0 0 50px #0f0;
-            margin:0;
-            letter-spacing:10px;
-            animation:pulse 3s infinite;
-        }
-        .tagline {
-            font-size:2.2rem;
-            color:#0f0;
-            text-shadow:0 0 20px #0f0;
-            margin:2rem 0;
-            overflow:hidden;
-            border-right:0.15em solid #0f0;
-            white-space:nowrap;
-            animation:typing 4s steps(40) forwards, blink 0.8s infinite;
-        }
-        @keyframes typing { from { width:0; } to { width:100%; } }
-        @keyframes blink { 50% { border-color:transparent; } }
-        @keyframes pulse { 0%,100% { text-shadow:0 0 50px #0f0; } 50% { text-shadow:0 0 80px #0f0; } }
-
-        .enter {
-            margin-top:4rem;
-            padding:1.5rem 5rem;
-            font-size:2.5rem;
-            background:transparent;
-            color:#0f0;
-            border:4px solid #0f0;
-            text-shadow:0 0 30px #0f0;
-            box-shadow:0 0 60px rgba(0,255,0,0.7);
-            cursor:pointer;
-            animation:glow 2s infinite;
-        }
-        @keyframes glow { 0% { box-shadow:0 0 60px rgba(0,255,0,0.7); } 50% { box-shadow:0 0 100px rgba(0,255,0,1); } 100% { box-shadow:0 0 60px rgba(0,255,0,0.7); } }
-
-        .latest { margin:6rem auto; max-width:1000px; padding:0 2rem; }
-        .latest h2 { color:#0f0; text-shadow:0 0 20px #0f0; font-size:3rem; }
-        .post { background:rgba(0,255,0,0.05); border-left:4px solid #0f0; padding:2rem; margin:2rem 0; }
-        .post a { color:#0f0; text-decoration:none; font-size:1.4rem; }
-        .post a:hover { text-shadow:0 0 20px #0f0; }
-
-        .matrix-toggle {
-            position:fixed;
-            bottom:2rem; right:2rem;
-            background:rgba(0,0,0,0.9);
-            padding:1rem 1.5rem;
-            border:2px solid #0f0;
-            color:#0f0;
-            cursor:pointer;
-            z-index:999;
-        }
-    </style>
 </head>
 <body>
-
-    <div class="hero">
-        <div class="scanlines"></div>
-        <div class="glitch"></div>
-
+    <header>
         <h1>OCCUPIED STATE</h1>
-        <p class="tagline">They took the country. We're taking it back—one leak at a time.</p>
-        <a href="#latest" class="enter">ENTER →</a>
-    </div>
+        <p class="tagline">They took the country. We're taking it back.</p>
 
-    <div class="latest" id="latest">
-        <h2>LATEST DISPATCHES</h2>
-        <div id="post-container"></div>
-    </div>
+      <nav>
+    <a href="index.html">Home</a> |
+    <a href="vault.html">Vault</a> |
+    <a href="analysis.html">Analysis</a> |
+    <a href="timeline.html">Timeline</a> |
+    <a href="blog.html">Blog</a> |
+    <a href="call.html">Call</a> |
+    <a href="about.html">About</a>
+</nav>
+    </header>
 
-    <label class="matrix-toggle">
-        <input type="checkbox" id="matrix-mode"> RAIN CODE
-    </label>
-    <div id="matrix"></div>
+    <main>
+        <section class="articles">
+            <h2>Latest Dispatches</h2>
 
-    <footer style="text-align:center;padding:4rem;color:#0a8;">
-        <p>No cookies • No trackers • No surrender • 2025</p>
+            <!-- SEARCH BAR -->
+            <input type="text" id="search-box" placeholder="Search dispatches…" autocomplete="off">
+
+            <ul id="article-list">
+                <!-- Filled by script.js -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>No cookies • No trackers • No surrender</p>
+        <p>Hosted on liberated infrastructure • 2025</p>
     </footer>
 
-    <script>
-        // Random glitch bursts
-        setInterval(() => {
-            if (Math.random() < 0.2) {
-                document.body.classList.add('glitching');
-                setTimeout(() => document.body.classList.remove('glitching'), 900);
-            }
-        }, 12000);
+    <script src="script.js"></script>
 
-        // Latest 3 dispatches (same data as blog)
-        const posts = [
-            {file:"articles/2025-12-08-spreadsheet-savages.html", title:"Spreadsheet Savages: How Excel Ate the Republic", date:"08 Dec 2025"},
-            {file:"articles/2025-11-30-vault-visions.html", title:"Vault Visions: Epstein’s Island Was the Beta Test", date:"30 Nov 2025"},
-            {file:"articles/2025-11-22-the-winking-wall.html", title:"The Winking Wall: Override Codes & 11-Minute Blackouts", date:"22 Nov 2025"}
-        ];
-
-        const container = document.getElementById('post-container');
-        posts.forEach(p => {
-            const div = document.createElement('div');
-            div.className = 'post';
-            div.innerHTML = `<a href="${p.file}">${p.title}</a><br><small>${p.date}</small>`;
-            container.appendChild(div);
-        });
-
-        // Matrix rain toggle
-        const toggle = document.getElementById('matrix-mode');
-        const matrix = document.getElementById('matrix');
-        let interval;
-        toggle.addEventListener('change', () => {
-            if (toggle.checked) {
-                const canvas = document.createElement('canvas');
-                matrix.appendChild(canvas);
-                const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                canvas.style.position = 'fixed';
-                canvas.style.top = 0;
-                canvas.style.left = 0;
-                canvas.style.pointerEvents = 'none';
-                canvas.style.opacity = '0.07';
-
-                const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ☭★';
-                const fontSize = 14;
-                const columns = canvas.width / fontSize;
-                const drops = Array(Math.floor(columns)).fill(1);
-
-                function draw() {
-                    ctx.fillStyle = 'rgba(0,0,0,0.05)';
-                    ctx.fillRect(0,0,canvas.width,canvas.height);
-                    ctx.fillStyle = '#0f0';
-                    ctx.font = fontSize + 'px monospace';
-                    for (let i = 0; i < drops.length; i++) {
-                        const text = chars[Math.floor(Math.random()*chars.length)];
-                        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-                        if (drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                        drops[i]++;
-                    }
-                }
-                interval = setInterval(draw, 50);
-            } else {
-                clearInterval(interval);
-                matrix.innerHTML = '';
-            }
-        });
-    </script>
+    <style>
+        #search-box {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto 3rem;
+            display: block;
+            padding: 1rem 1.5rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            background: rgba(0,255,0,0.05);
+            border: 2px solid #0f0;
+            color: #0f0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,255,0,0.3);
+            transition: all 0.3s;
+        }
+        #search-box:focus {
+            outline: none;
+            box-shadow: 0 0 30px rgba(0,255,0,0.6);
+            background: rgba(0,255,0,0.1);
+        }
+        #search-box::placeholder {
+            color: #0a8;
+        }
+    </style>
 </body>
 </html>
