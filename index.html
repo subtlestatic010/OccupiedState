@@ -75,17 +75,17 @@
             80% { transform:translate(3px,3px); }
         }
         @keyframes navglow { 0%,100% { box-shadow:0 0 50px rgba(0,255,0,0.5); } 50% { box-shadow:0 0 90px rgba(0,255,0,0.9); } }
-        /* Mobile title fix: throttle size, add break for overflow mercy */
+        /* Mobile title fix: throttle size harder, add break for overflow mercy */
         @media (max-width: 480px) {
             h1 {
-                font-size: 2.5rem !important; /* Slim it down from presumed 4rem+ in style.css */
+                font-size: 2rem !important; /* Thinner clamp from 2.5rem—fits the trench */
                 word-break: break-word;
                 hyphens: auto;
                 text-align: center;
-                padding: 0 1rem; /* Edge breathing room */
+                padding: 0 0.5rem; /* Tighter edges */
             }
             .tagline {
-                font-size: 1.2rem; /* Keep subtitle in check */
+                font-size: 1.1rem; /* Slim subtitle further */
             }
         }
     </style>
