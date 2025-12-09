@@ -1,247 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE VAULT – Occupied State</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>THE VAULT</h1>
-        <p class="tagline">Primary sources the regime classified, burned, or memory-holed.<br>We mirrored them. Forever.</p>
-        <input type="text" id="searchInput" placeholder="Search vault: keywords, titles, ops...">
-        <div class="topnav">
-            <span class="menu-icon" onclick="toggleMenu()">≡</span>
-            <div class="nav-links">
-                <a href="index.html">DISPATCHES</a>
-                <a href="vault.html">THE VAULT</a>
-                <a href="analysis.html">ANALYSIS</a>
-                <a href="timeline.html">TIMELINE</a>
-                <a href="blog.html">BLOG</a>
-                <a href="call.html">CALL TO ACTION</a>
-                <a href="about.html">ABOUT</a>
-            </div>
-        </div>
-    </header>
-    <main class="vault-main" id="vault-main"></main>
-    <footer>
-        <p>All files hosted on decentralized mirrors • If one dies, ten more rise</p>
-    </footer>
-    <script>
-        function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        }
-
-        const vault = [
-            {
-                category: "False Flags & Fabrications",
-                title: "Operation Northwoods (1962) – Declassified False-Flag Plan",
-                desc: "U.S. military proposal to commit terror attacks on Americans and blame Cuba.",
-                file: "https://nsarchive2.gwu.edu/news/20010430/northwoods.pdf",
-                size: "1.2 MB"
-            },
-            {
-                category: "False Flags & Fabrications",
-                title: "Gulf of Tonkin Incident Declassified NSA Report (1964)",
-                desc: "Proof the second 'attack' never happened—fabricated to justify Vietnam escalation.",
-                file: "https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/gulf-of-tonkin/articles/release-2/rel2_gulf_tonkin_incident_desoto.pdf",
-                size: "2.1 MB"
-            },
-            {
-                category: "False Flags & Fabrications",
-                title: "USS Liberty Attack Declassified NSA Documents (1967)",
-                desc: "Israeli assault on U.S. spy ship: 34 dead, cover-up exposed in raw intercepts.",
-                file: "https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/uss-liberty/rel2_ussliberty.pdf",
-                size: "4.8 MB"
-            },
-            {
-                category: "Elite Crimes & Cover-Ups",
-                title: "The Franklin Cover-Up – John DeCamp (1992)",
-                desc: "Elite child-trafficking network reaching the White House. Witnesses suicided.",
-                file: "https://archive.org/details/TheFranklinCover-upByFormerGreenBeretJohnDecamp",
-                size: "14 MB"
-            },
-            {
-                category: "Elite Crimes & Cover-Ups",
-                title: "Epstein Flight Logs – Unredacted (2015)",
-                desc: "Every flight, every passenger, every trip to the island.",
-                file: "https://archive.org/details/epstein-flight-logs-unredacted_202501",
-                size: "6.4 MB"
-            },
-            {
-                category: "Elite Crimes & Cover-Ups",
-                title: "The Turner Diaries – Earl Turner (1978)",
-                desc: "The novel that terrified three letter agencies more than any other.",
-                file: "https://archive.org/details/the-turner-diaries_202412",
-                size: "1.1 MB"
-            },
-            {
-                category: "Intelligence & Mind Control Ops",
-                title: "MK-ULTRA Complete Document CIA MORI 187774",
-                desc: "Full index of every MK-ULTRA subproject, human experiments, and LSD logs.",
-                file: "https://www.esd.whs.mil/Portals/54/Documents/FOID/Reading%20Room/NCB/02-A-0846_RELEASE.pdf",
-                size: "28 MB"
-            },
-            {
-                category: "Intelligence & Mind Control Ops",
-                title: "Operation Mockingbird CIA Media Infiltration Memo (1954)",
-                desc: "CIA blueprint for controlling U.S. journalists—400+ recruited as assets.",
-                file: "https://www.cia.gov/readingroom/docs/CIA-RDP91-00901R000500150026-0.pdf",
-                size: "1.5 MB"
-            },
-            {
-                category: "Intelligence & Mind Control Ops",
-                title: "Operation Paperclip Nazi Scientist Import List (1945)",
-                desc: "1,600+ ex-Nazis whitewashed for U.S. rocket and mind-control programs.",
-                file: "https://www.archives.gov/files/iwg/declassified-records/rg-330-defense-secretary/operation-paperclip.pdf",
-                size: "3.2 MB"
-            },
-            {
-                category: "Racial & Political Psyops",
-                title: "FBI COINTELPRO Coloring Book (1968 forgery)",
-                desc: "FBI-created racist propaganda mailed to white neighborhoods to inflame division.",
-                file: "https://archive.org/details/BlackPantherColoringBook",
-                size: "3.7 MB"
-            },
-            {
-                category: "Racial & Political Psyops",
-                title: "The Protocols of the Learned Elders of Zion – 1903 English Translation",
-                desc: "The most banned book in history. Read the source text yourself.",
-                file: "https://archive.org/details/protocols-of-learned-elders-of-zion-hq-62-40827/page/n1/mode/2up",
-                size: "890 KB"
-            },
-            {
-                category: "Racial & Political Psyops",
-                title: "COINTELPRO Full FBI Manual – Unredacted (1956-1971)",
-                desc: "FBI's playbook for disrupting civil rights groups: forgeries, smears, assassinations.",
-                file: "https://vault.fbi.gov/cointel-pro",
-                size: "12 MB"
-            },
-            {
-                category: "Border Invasion Leaks",
-                title: "HHS Unaccompanied Children Sponsor Database FY2021-2025",
-                desc: "1M+ minors funneled to 'sponsors'—87% NGO/cartel ties, 40K scrubbed records.",
-                file: "https://www.govinfo.gov/content/pkg/CHRG-118hhrg54100/pdf/CHRG-118hhrg54100.pdf",
-                size: "5.6 MB"
-            },
-            {
-                category: "Border Invasion Leaks",
-                title: "CBP Got-Aways Observational Logs Southwest Border (2021-2025)",
-                desc: "312K+ undetected crossings, override codes, and fence 'failures' exposed.",
-                file: "https://www.govinfo.gov/content/pkg/CMR-HS1-00193216/pdf/CMR-HS1-00193216.pdf",
-                size: "2.9 MB"
-            },
-            {
-                category: "Covert Foreign Interventions",
-                title: "Iran-Contra Affair Declassified CIA Cables (1985-1987)",
-                desc: "Reagan's secret arms-for-hostages scam funding Nicaraguan death squads.",
-                file: "https://nsarchive2.gwu.edu/NSAEBB/NSAEBB210/index.htm",
-                size: "8.3 MB"
-            },
-            {
-                category: "Covert Foreign Interventions",
-                title: "Operation Condor Declassified State Dept. Memos (1976)",
-                desc: "U.S.-backed South American death squads: 60K+ murdered, tortured, disappeared.",
-                file: "https://nsarchive2.gwu.edu/NSAEBB/NSAEBB416/docs/Index%20of%20Documents.pdf",
-                size: "7.1 MB"
-            },
-            {
-                category: "Mass Surveillance",
-                title: "Snowden NSA PRISM Surveillance Deck (2013)",
-                desc: "Full slide deck: Tech giants handing over your data to the panopticon.",
-                file: "https://archive.org/details/prism-slide-deck",
-                size: "1.8 MB"
-            }
-        ];
-
-        const main = document.getElementById('vault-main');
-        const searchInput = document.getElementById('searchInput');
-        const categories = [...new Set(vault.map(item => item.category))];
-
-        function renderVault(filter = '') {
-            main.innerHTML = ''; // Clear existing content
-            const lowerFilter = filter.toLowerCase();
-
-            categories.forEach((cat, index) => {
-                const filteredItems = vault.filter(item => item.category === cat &&
-                    (item.title.toLowerCase().includes(lowerFilter) || item.desc.toLowerCase().includes(lowerFilter)));
-
-                if (filteredItems.length === 0) return; // Skip empty sections
-
-                const section = document.createElement('section');
-                section.className = 'vault-section';
-                section.dataset.shadowIntensity = index % 3 + 1;
-                const h2 = document.createElement('h2');
-                h2.textContent = cat;
-                section.appendChild(h2);
-
-                const grid = document.createElement('div');
-                grid.className = 'vault-grid';
-
-                filteredItems.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'vault-item';
-                    div.innerHTML = `
-                        <h3>${item.title}</h3>
-                        <p class="desc">${item.desc}</p>
-                        <p class="meta">${item.size} • <a href="${item.file}" target="_blank">DOWNLOAD / OPEN →</a></p>
-                    `;
-                    grid.appendChild(div);
-                });
-
-                section.appendChild(grid);
-                main.appendChild(section);
-            });
-        }
-
-        // Initial render
-        renderVault();
-
-        // Search event
-        searchInput.addEventListener('keyup', (e) => {
-            renderVault(e.target.value);
-        });
-    </script>
-    <style>
-        #searchInput { 
-            display: block; margin: 2rem auto; padding: 1rem; width: 80%; max-width: 600px; 
-            background: rgba(0,0,0,0.5); border: 1px solid #0f0; color: #0f0; 
-            font-family: monospace; font-size: 1.2rem; text-shadow: 0 0 5px #0f0; 
-            transition: .3s; 
-        }
-        #searchInput:focus { 
-            box-shadow: 0 0 25px rgba(0,255,0,0.5); outline: none; 
-        }
-        #searchInput::placeholder { 
-            color: #0a8; text-shadow: 0 0 8px #0f0; 
-        }
-        .vault-main { max-width: 1200px; margin: 4rem auto; display: flex; flex-direction: column; gap: 4rem; }
-        .vault-section { background: rgba(0,255,0,0.08); border: 1px solid #0f0; padding: 3rem 2rem; box-shadow: 0 0 15px rgba(0,255,0,0.3); transition: .4s; }
-        .vault-section:hover { box-shadow: 0 0 30px rgba(0,255,0,0.6); }
-        .vault-section h2 { color: #0f0; text-shadow: 0 0 12px #0f0; margin-bottom: 2rem; font-size: 2rem; text-align: center; }
-        .vault-section h2:hover { animation: glitch 0.3s linear; }
-        .vault-section[data-shadow-intensity="1"] { box-shadow: 0 0 10px rgba(0,255,0,0.2); }
-        .vault-section[data-shadow-intensity="2"] { box-shadow: 0 0 20px rgba(0,255,0,0.4); }
-        .vault-section[data-shadow-intensity="3"] { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
-        .vault-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; }
-        .vault-item { background: rgba(0,255,0,0.05); border: 1px solid #0f0; padding: 2rem; transition: .4s; box-shadow: 0 0 10px rgba(0,255,0,0.2); }
-        .vault-item:hover { background: rgba(0,255,0,0.2); box-shadow: 0 0 40px rgba(0,255,0,0.5); transform: translateY(-8px); }
-        .vault-item h3 { color: #0f0; margin-bottom: 1rem; text-shadow: 0 0 10px #0f0; }
-        .vault-item h3:hover { animation: glitch 0.3s linear; }
-        .vault-item .desc { color: #8f8; line-height: 1.5; }
-        .vault-item .meta { color: #0a8; margin-top: 1rem; }
-        .vault-item a { color: #0f0; font-weight: bold; text-decoration: none; }
-        .vault-item a:hover { text-shadow: 0 0 15px #0f0; }
-
-        @keyframes glitch {
-            0% { text-shadow: 0.05em 0 0 #f00, -0.03em 0 0 #0f0, -0.04em 0 0 #00f; }
-            15% { text-shadow: 0.05em -0.03em 0 #f00, 0.025em 0.035em 0 #0f0, -0.05em -0.02em 0 #00f; }
-            49% { text-shadow: -0.025em 0 0 #f00, 0.025em 0 0 #0f0, 0.04em -0.02em 0 #00f; }
-            50% { text-shadow: 0.05em 0.035em 0 #f00, 0.03em 0 0 #0f0, 0 0 0 #00f; }
-            99% { text-shadow: 0.05em 0 0 #f00, -0.025em -0.04em 0 #0f0, -0.04em -0.025em 0 #00f; }
-            100% { text-shadow: 0.025em 0 0 #f00, -0.025em -0.025em 0 #0f0, -0.04em 0 0 #00f; }
-        }
-    </style>
-</body>
-</html>
+#searchInput {
+    display: block; margin: 2rem auto; padding: 1rem; width: 80%; max-width: 600px;
+    background: rgba(0,0,0,0.5); border: 1px solid #0f0; color: #0f0;
+    font-family: monospace; font-size: 1.2rem; text-shadow: 0 0 5px #0f0;
+    transition: .3s;
+}
+#searchInput:focus {
+    box-shadow: 0 0 25px rgba(0,255,0,0.5); outline: none;
+}
+#searchInput::placeholder {
+    color: #0a8; text-shadow: 0 0 8px #0f0;
+}
+.vault-main { max-width: 1200px; margin: 4rem auto; display: flex; flex-direction: column; gap: 4rem; }
+.vault-section { background: rgba(0,255,0,0.08); border: 1px solid #0f0; padding: 3rem 2rem; box-shadow: 0 0 15px rgba(0,255,0,0.3); transition: .4s; }
+.vault-section:hover { box-shadow: 0 0 30px rgba(0,255,0,0.6); }
+.vault-section h2 { color: #0f0; text-shadow: 0 0 12px #0f0; margin-bottom: 2rem; font-size: 2rem; text-align: center; }
+.vault-section h2:hover { animation: glitch 0.3s linear; }
+.vault-section[data-shadow-intensity="1"] { box-shadow: 0 0 10px rgba(0,255,0,0.2); }
+.vault-section[data-shadow-intensity="2"] { box-shadow: 0 0 20px rgba(0,255,0,0.4); }
+.vault-section[data-shadow-intensity="3"] { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
+.vault-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; }
+.vault-item { background: rgba(0,255,0,0.05); border: 1px solid #0f0; padding: 2rem; transition: .4s; box-shadow: 0 0 10px rgba(0,255,0,0.2); }
+.vault-item:hover { background: rgba(0,255,0,0.2); box-shadow: 0 0 40px rgba(0,255,0,0.5); transform: translateY(-8px); }
+.vault-item h3 { color: #0f0; margin-bottom: 1rem; text-shadow: 0 0 10px #0f0; }
+.vault-item h3:hover { animation: glitch 0.3s linear; }
+.vault-item .desc { color: #8f8; line-height: 1.5; }
+.vault-item .meta { color: #0a8; margin-top: 1rem; }
+.vault-item a { color: #0f0; font-weight: bold; text-decoration: none; }
+.vault-item a:hover { text-shadow: 0 0 15px #0f0; }
+@keyframes glitch {
+    0% { text-shadow: 0.05em 0 0 #f00, -0.03em 0 0 #0f0, -0.04em 0 0 #00f; }
+    15% { text-shadow: 0.05em -0.03em 0 #f00, 0.025em 0.035em 0 #0f0, -0.05em -0.02em 0 #00f; }
+    49% { text-shadow: -0.025em 0 0 #f00, 0.025em 0 0 #0f0, 0.04em -0.02em 0 #00f; }
+    50% { text-shadow: 0.05em 0.035em 0 #f00, 0.03em 0 0 #0f0, 0 0 0 #00f; }
+    99% { text-shadow: 0.05em 0 0 #f00, -0.025em -0.04em 0 #0f0, -0.04em -0.025em 0 #00f; }
+    100% { text-shadow: 0.025em 0 0 #f00, -0.025em -0.025em 0 #0f0, -0.04em 0 0 #00f; }
+}
+/* Mobile fix: throttle minmax to prevent overflow */
+@media (max-width: 480px) {
+    .vault-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } /* Adjust min to fit typical phones */
+    .vault-section { padding: 2rem 1rem; } /* Slim padding to reclaim space */
+    .vault-item { padding: 1.5rem; } /* Tighter items */
+}
