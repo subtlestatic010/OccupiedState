@@ -1,200 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Share+Tech+Mono&display=swap');
+/* === GLITCH TIMELINE UPGRADE === */
+.cd-timeline__container::before {
+    background: linear-gradient(transparent 40%, #0f0 50%, transparent 60%);
+    box-shadow: 0 0 15px #0f0;
+    animation: linepulse 4s infinite;
+}
+@keyframes linepulse {
+    0%,100% { opacity: 0.7; }
+    50% { opacity: 1; box-shadow: 0 0 30px #0f0; }
+}
 
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
+/* Visible pulsing dots on the line */
+.cd-timeline__img {
     background: #000;
-    color: #0f0;
-    font-family: 'Share Tech Mono', monospace;
-    line-height: 1.6;
-    padding: 2rem 1rem;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 4rem;
-    border-bottom: 3px solid #0f0;
-    padding-bottom: 2rem;
-}
-
-h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 4.5rem;
-    color: #0f0;
-    text-shadow: 0 0 20px #0f0;
-    letter-spacing: 0.5rem;
-}
-
-.tagline {
-    font-size: 1.4rem;
-    color: #0f9;
-    margin-top: 1rem;
-}
-
-.articles {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-h2 {
-    font-size: 2rem;
-    color: #0f0;
-    margin-bottom: 2rem;
-    text-align: center;
-    text-shadow: 0 0 10px #0f0;
-}
-
-ul#article-list {
-    list-style: none;
-}
-
-li.article {
-    background: rgba(0,255,0,0.03);
-    border-left: 4px solid #0f0;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s;
-}
-
-li.article:hover {
-    background: rgba(0,255,0,0.08);
-    box-shadow: 0 0 15px rgba(0,255,0,0.3);
-}
-
-.article h3 {
-    font-size: 1.8rem;
-    color: #0f0;
-}
-
-.article .date {
-    color: #0b8;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-.article p.preview {
-    color: #af9;
-}
-
-.article a {
-    color: #0f0;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.article a:hover {
-    text-shadow: 0 0 10px #0f0;
-}
-
-footer {
-    text-align: center;
-    margin-top: 6rem;
-    padding-top: 2rem;
-    border-top: 1px dashed #0f0;
-    color: #0a6;
-    font-size: 0.9rem;
-}
-.topnav {
-    margin-top: 2rem;
-    font-size: 1.4rem;
-}
-
-.topnav a {
-    color: #0f0;
-    text-decoration: none;
-    margin: 0 2rem;
-    padding: 0.5rem 1rem;
-    border: 2px solid transparent;
-    transition: all 0.4s;
-}
-
-.topnav a:hover {
-    border: 2px solid #0f0;
-    background: rgba(0,255,0,0.1);
+    border: 3px solid #0f0;
     box-shadow: 0 0 20px #0f0;
+    width: 40px; height: 40px;
+}
+.dot {
+    width: 16px; height: 16px;
+    background: #0f0;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #0f0;
+    animation: dotpulse 2s infinite;
+}
+@keyframes dotpulse {
+    0%,100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+/* GLITCH POP REVEAL */
+.cd-timeline__content--bounce-in {
+    animation: glitchReveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+}
+.cd-timeline__img--bounce-in {
+    animation: dotGlitch 0.8s ease-out forwards;
+}
+
+@keyframes glitchReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    20% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    25% { transform: translateY(-10px) scale(1.02); }
+    40% { transform: translateY(5px) skewX(5deg); }
+    60% {
+        transform: translateY(-3px) skewX(-3deg);
+        text-shadow: 4px 0 0 #0ff, -4px 0 0 #f0f;
+    }
+    80% { text-shadow: 2px 0 0 #0ff, -2px 0 0 #f0f; }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        text-shadow: none;
+    }
+}
+
+@keyframes dotGlitch {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.6); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Extra CRT flicker on hover */
+.cd-timeline__content:hover {
+    animation: crtFlicker 0.15s linear 3;
+}
+@keyframes crtFlicker {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Year numbers get a falling matrix trail */
+.year {
+    font-size: 2.5rem !important;
+    font-weight: 900;
+    color: #0f0;
     text-shadow: 0 0 15px #0f0;
+    position: relative;
+    display: inline-block;
 }
-/* RESPONSIVE NAV - Mobile collapse to hamburger */
-@media screen and (max-width: 768px) {
-    .topnav {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 1rem;
-        font-size: 1.2rem;
-    }
-    
-    .topnav .menu-icon {
-        display: inline-block;
-        cursor: pointer;
-        font-size: 2rem;
-        color: #0f0;
-        text-shadow: 0 0 10px #0f0;
-        padding: 0.5rem;
-        transition: all 0.3s;
-    }
-    
-    .topnav .menu-icon:hover {
-        text-shadow: 0 0 20px #0f0;
-    }
-    
-    .topnav .nav-links {
-        display: none; /* Hidden by default on mobile */
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-        margin-top: 1rem;
-        background: rgba(0,0,0,0.95);
-        border: 2px solid #0f0;
-        box-shadow: 0 0 20px rgba(0,255,0,0.3);
-    }
-    
-    .topnav .nav-links.active {
-        display: flex; /* Show when toggled */
-    }
-    
-    .topnav .nav-links a {
-        margin: 0;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid rgba(0,255,0,0.2);
-        text-align: center;
-        width: 100%;
-        transition: all 0.3s;
-    }
-    
-    .topnav .nav-links a:last-child {
-        border-bottom: none;
-    }
-    
-    .topnav .nav-links a:hover {
-        background: rgba(0,255,0,0.2);
-        box-shadow: none; /* Override desktop hover for mobile stack */
-    }
-    
-    /* Stack desktop links horizontally above 768px - already good, but reinforce */
-    @media screen and (min-width: 769px) {
-        .topnav .menu-icon { display: none; }
-        .topnav .nav-links { 
-            display: flex !important; 
-            flex-direction: row; 
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .topnav .nav-links a { 
-            margin: 0 1rem; 
-            padding: 0.5rem 1rem; 
-            border: 2px solid transparent;
-        }
-    }
+.year::after {
+    content: attr(data-year);
+    position: absolute;
+    left: 0;
+    top: -20px;
+    color: rgba(0,255,0,0.3);
+    animation: matrixFall 1.2s linear forwards;
+    pointer-events: none;
+}
+@keyframes matrixFall {
+    0% { transform: translateY(-30px); opacity: 1; }
+    100% { transform: translateY(80px); opacity: 0; }
 }
 
-/* Glow pulse for mobile menu open */
-@keyframes menuPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(0,255,0,0.3); }
-    50% { box-shadow: 0 0 30px rgba(0,255,0,0.6); }
-}
-
-.topnav .nav-links.active {
-    animation: menuPulse 2s infinite;
+/* Make sure odd/even still work on mobile */
+@media (max-width: 767px) {
+    .cd-timeline__block:nth-child(even) .cd-timeline__content {
+        margin-left: 60px;
+    }
 }
