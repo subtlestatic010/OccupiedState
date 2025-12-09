@@ -8,17 +8,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☭</text></svg>">
     <style>
-        body { 
-            background:#000; 
-            color:#0f0; 
-            margin:0; 
+        body {
+            background:#000;
+            color:#0f0;
+            margin:0;
             overflow-x:hidden;
             position:relative;
         }
-
         .scanlines, .glitch { /* existing scanlines & full-screen glitch unchanged */ }
         /* ... (keep all previous scanline/glitch code) ... */
-
         nav {
             margin:3rem 0;
             padding:1.5rem 2rem;
@@ -28,7 +26,6 @@
             box-shadow:0 0 50px rgba(0,255,0,0.5);
             animation:navglow 5s infinite;
         }
-
         /* GLITCH NAV LINKS */
         nav a {
             color:#0f0 !important;
@@ -40,7 +37,6 @@
             position:relative;
             transition:all 0.3s;
         }
-
         nav a::before, nav a::after {
             content:attr(data-text);
             position:absolute;
@@ -56,7 +52,6 @@
             color:#f0f;
             animation:glitch-2 0.5s infinite;
         }
-
         nav a:hover {
             text-shadow:0 0 40px #0f0;
             transform:scale(1.15);
@@ -65,7 +60,6 @@
         nav a:hover::after {
             opacity:1;
         }
-
         @keyframes glitch-1 {
             0%,100% { transform:translate(0); }
             20% { transform:translate(-3px,3px); }
@@ -80,15 +74,25 @@
             60% { transform:translate(-3px,-3px); }
             80% { transform:translate(3px,3px); }
         }
-
         @keyframes navglow { 0%,100% { box-shadow:0 0 50px rgba(0,255,0,0.5); } 50% { box-shadow:0 0 90px rgba(0,255,0,0.9); } }
+        /* Mobile title fix: throttle size, add break for overflow mercy */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem !important; /* Slim it down from presumed 4rem+ in style.css */
+                word-break: break-word;
+                hyphens: auto;
+                text-align: center;
+                padding: 0 1rem; /* Edge breathing room */
+            }
+            .tagline {
+                font-size: 1.2rem; /* Keep subtitle in check */
+            }
+        }
     </style>
 </head>
 <body>
-
     <div class="scanlines"></div>
     <div class="glitch"></div>
-
     <header>
         <h1>OCCUPIED STATE</h1>
         <p class="tagline">They took the country. We're taking it back.</p>
@@ -102,7 +106,6 @@
             <a href="about.html" data-text="About">About</a>
         </nav>
     </header>
-
     <!-- rest of your page unchanged -->
     <main>
         <section class="articles">
@@ -113,12 +116,10 @@
             </ul>
         </section>
     </main>
-
     <footer>
         <p>No cookies • No trackers • No surrender</p>
         <p>Hosted on liberated infrastructure • 2025</p>
     </footer>
-
     <script src="script.js"></script>
     <script>
         // full-screen glitch bursts
