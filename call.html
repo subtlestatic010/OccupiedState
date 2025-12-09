@@ -5,105 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALL TO ACTION | Occupied State</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .call { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; }
-        .call p, .call li, .call pre code { color:#fff !important; }
-        .call h2, .call h3 { color:#0f0; text-shadow:0 0 15px #0f0; margin-top:3rem; }
-        .call .warning { color:#f00; font-size:2.2rem; text-align:center; margin:4rem 0; text-shadow:0 0 15px #f00; }
-
-        .call pre {
-            background:#000;
-            padding:1.5rem;
-            border:2px solid #0f0;
-            overflow-x:auto;
-            margin:2rem 0;
-            box-shadow:0 0 20px rgba(0,255,0,0.3);
-            font-family:'Courier New',monospace;
-        }
-        .call pre code { color:#0f0; font-size:0.95rem; line-height:1.5; background:transparent !important; }
-
-        .call a { color:#0f0; text-decoration:underline; }
-        .call a:hover { text-shadow:0 0 15px #0f0; }
-
-        .flyer {
-            background:#000; color:#0f0; padding:2rem; margin:3rem 0;
-            border:3px double #0f0; text-align:center; page-break-inside:avoid;
-            box-shadow:0 0 25px rgba(0,255,0,0.4);
-        }
-        .flyer h3 { margin:0 0 1rem 0; font-size:2rem; text-shadow:0 0 15px #0f0; }
-        .flyer p { margin:0.8rem 0; color:#fff; }
-        .flyer strong { color:#fff; }
-        .qr img { width:200px; height:200px; margin:1rem auto; display:block; border:2px solid #0f0; padding:5px; background:#000; }
-
-        @media print { body { background:#000; color:#0f0; } .call { max-width:none; } .flyer { page-break-after:always; } }
-    </style>
 </head>
 <body>
     <header>
         <h1>CALL TO ACTION</h1>
-        <nav>
-            <a href="index.html">Home</a> | <a href="vault.html">Vault</a> | <a href="analysis.html">Analysis</a> |
-            <a href="timeline.html">Timeline</a> | <a href="blog.html">Blog</a> | <a href="call.html">Call</a> | <a href="about.html">About</a>
-        </nav>
+        <div class="topnav">
+            <span class="menu-icon" onclick="toggleMenu()">≡</span>
+            <div class="nav-links">
+                <a href="index.html">DISPATCHES</a>
+                <a href="vault.html">THE VAULT</a>
+                <a href="analysis.html">ANALYSIS</a>
+                <a href="timeline.html">TIMELINE</a>
+                <a href="blog.html">BLOG</a>
+                <a href="call.html">CALL TO ACTION</a>
+                <a href="about.html">ABOUT</a>
+            </div>
+        </div>
     </header>
-
     <main class="call">
-
         <p class="warning">
             THE LEAKS ARE THE SPARK.<br>
             YOU ARE THE ACCELERANT.
         </p>
-
-        <h2>1. Mirror This Site — Tonight</h2>
-        <pre><code>git clone https://github.com/subtlestatic010/OccupiedState.git
+        <div class="call-section" data-shadow-intensity="1">
+            <h2>1. Mirror This Site — Tonight</h2>
+            <pre><code>git clone https://github.com/subtlestatic010/OccupiedState.git
 cd OccupiedState
 git remote set-url origin https://github.com/YOURNAME/OccupiedState-mirror.git
 git push -u origin main</code></pre>
-
-        <h2>2. Ready-to-File FOIA Templates</h2>
-
-        <h3>A – HHS Sponsors in Your County</h3>
-        <pre><code>To: foia@hhs.gov
+        </div>
+        <div class="call-section" data-shadow-intensity="2">
+            <h2>2. Ready-to-File FOIA Templates</h2>
+            <h3>A – HHS Sponsors in Your County</h3>
+            <pre><code>To: foia@hhs.gov
 Subject: FOIA – UAC Sponsor Addresses [COUNTY, STATE] FY2021-2025
 All sponsor addresses (street-level or census block) in [COUNTY], [STATE] receiving unaccompanied alien children FY2021-present. Include number of children per address and vetting status. Fee waiver requested.</code></pre>
-
-        <h3>B – CBP Camera Override / 11-Minute Blackouts</h3>
-        <pre><code>To: cbpfoia@cbp.dhs.gov
+            <h3>B – CBP Camera Override / 11-Minute Blackouts</h3>
+            <pre><code>To: cbpfoia@cbp.dhs.gov
 Subject: FOIA – Camera Reboot / Override Logs FY2021-2025
 All logs referencing “camera reboot,” “11-minute blackout,” “override code,” or “sensor deactivation” coinciding with migrant crossing events, southwest border.</code></pre>
-
-        <h3>C – NGO Bounty Payments (FEMA/ICE)</h3>
-        <pre><code>To: foia@ice.dhs.gov, ssp@fema.dhs.gov
+            <h3>C – NGO Bounty Payments (FEMA/ICE)</h3>
+            <pre><code>To: foia@ice.dhs.gov, ssp@fema.dhs.gov
 Subject: FOIA – Shelter & Services Program Grants FY2023-2025
 All contracts and per-migrant reimbursement rates to Catholic Charities, Endeavors, Lutheran Immigration, HIAS, Southwest Key, etc.</code></pre>
-
-        <h3>D – Northern Border Got-Aways & License Plate Surveillance</h3>
-        <pre><code>To: cbpfoia@cbp.dhs.gov
+            <h3>D – Northern Border Got-Aways & License Plate Surveillance</h3>
+            <pre><code>To: cbpfoia@cbp.dhs.gov
 Subject: FOIA – Northern Border Got-Aways & Flock Safety Contracts FY2021-2025
 All got-away estimates and Flock Safety / ALPR contracts on the northern border.</code></pre>
-
-        <h3>E – FEMA Emergency Food & Shelter Program Migrant Funding</h3>
-        <pre><code>To: fema-foia@fema.dhs.gov
+            <h3>E – FEMA Emergency Food & Shelter Program Migrant Funding</h3>
+            <pre><code>To: fema-foia@fema.dhs.gov
 Subject: FOIA – EFSP National Board Migrant Allocations FY2021-2025
 All grants issued through the EFSP National Board for migrant shelter/transport.</code></pre>
-
-        <h2>3. Printable Flyers (Ctrl+P → 4 per sheet)</h2>
-
-        <div class="flyer"><h3>470,000 CHILDREN</h3><p>HHS lost contact with 85,000+ minors.<br>The rest delivered to unvetted addresses.</p><p><strong>This is not incompetence.<br>This is deployment.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
-
-        <div class="flyer"><h3>$6,800 PER HEAD</h3><p>NGOs received $4.7 billion of your taxes.<br>Catholic Charities made more from Uncle Sam than from church plates.</p><p><strong>Your money funds replacement.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
-
-        <div class="flyer"><h3>2 MILLION GOT-AWAYS</h3><p>Undetected crossings since 2021.<br>Cameras “reboot” when caravans walk through.</p><p><strong>The wall blinks on command.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState/vault.html" alt="QR"></div>
-
-        <div class="flyer"><h3>THEY LOST 85,000 KIDS</h3><p>HHS admits it cannot locate 85,000 minors released since 2021.<br>Many placed with criminal sponsors.</p><p><strong>Where are the children?</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState/analysis.html" alt="QR"></div>
-
-        <div class="flyer"><h3>YOUR TAXES PAY THE SMUGGLERS</h3><p>FEMA gave NGOs billions to fly, bus, and house migrants.<br>Zero border security required.</p><p><strong>Replacement is profitable.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
-
-        <h2>4. Leak Dead-Drop — Zero Trace</h2>
-        <pre><code>Tor Browser → subtlestatic@tutamail.com
-
-PGP Public Key (fingerprint: F41D 9BB8 4F67 FAC0 1AEA  A94C 13D1 7784 9E08 8E21)
-
+        </div>
+        <div class="call-section" data-shadow-intensity="3">
+            <h2>3. Printable Flyers (Ctrl+P → 4 per sheet)</h2>
+            <div class="flyer"><h3>470,000 CHILDREN</h3><p>HHS lost contact with 85,000+ minors.<br>The rest delivered to unvetted addresses.</p><p><strong>This is not incompetence.<br>This is deployment.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
+            <div class="flyer"><h3>$6,800 PER HEAD</h3><p>NGOs received $4.7 billion of your taxes.<br>Catholic Charities made more from Uncle Sam than from church plates.</p><p><strong>Your money funds replacement.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
+            <div class="flyer"><h3>2 MILLION GOT-AWAYS</h3><p>Undetected crossings since 2021.<br>Cameras “reboot” when caravans walk through.</p><p><strong>The wall blinks on command.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState/vault.html" alt="QR"></div>
+            <div class="flyer"><h3>THEY LOST 85,000 KIDS</h3><p>HHS admits it cannot locate 85,000 minors released since 2021.<br>Many placed with criminal sponsors.</p><p><strong>Where are the children?</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState/analysis.html" alt="QR"></div>
+            <div class="flyer"><h3>YOUR TAXES PAY THE SMUGGLERS</h3><p>FEMA gave NGOs billions to fly, bus, and house migrants.<br>Zero border security required.</p><p><strong>Replacement is profitable.</strong></p><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://subtlestatic010.github.io/OccupiedState" alt="QR"></div>
+        </div>
+        <div class="call-section" data-shadow-intensity="1">
+            <h2>4. Leak Dead-Drop — Zero Trace</h2>
+            <pre><code>Tor Browser → subtlestatic@tutamail.com
+PGP Public Key (fingerprint: F41D 9BB8 4F67 FAC0 1AEA A94C 13D1 7784 9E08 8E21)
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 mQGNBGk3WIIBDAC6Zas7VTuZQW+NUxgTAVUPf9ei5ttN5oThvO+auZc4Q0jZRnq7
 IH/zYbnxGHc/pgg4/7FYJKJhnQjU/Uj2P2M4U90JzzGny40zyJiB2tBt6ceUkO48
@@ -144,20 +109,71 @@ kr1MzGtWFxnW+MdM+3jKRNHNI7ag8FML6phJA5sOm6cLgfw6PcWVoLWDjQmzBoY2
 Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
 =gc2P
 -----END PGP PUBLIC KEY BLOCK-----
-
 or open anonymous GitHub issue:
 https://github.com/subtlestatic010/OccupiedState/issues/new?template=leak.yml</code></pre>
-
-        <p class="warning">
-            WE ARE NOT VIOLENT. THEY FEAR THE ARCHIVE MORE THAN THE RIFLE.<br>
-            BULLETS RUN OUT.<br>
-            TRUTH REPLICATES FOREVER.
-        </p>
-
+            <p class="warning">
+                WE ARE NOT VIOLENT. THEY FEAR THE ARCHIVE MORE THAN THE RIFLE.<br>
+                BULLETS RUN OUT.<br>
+                TRUTH REPLICATES FOREVER.
+            </p>
+        </div>
     </main>
-
     <footer>
         <p>No cookies • No trackers • No surrender</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+    <style>
+        .call { max-width: 900px; margin: 0 auto; padding: 2rem; line-height: 1.8; display: flex; flex-direction: column; gap: 3rem; }
+        .call p, .call li, .call pre code { color:#fff !important; }
+        .call h2, .call h3 { color:#0f0; text-shadow:0 0 15px #0f0; margin-top:3rem; }
+        .call h2:hover, .call h3:hover { animation: glitch 0.3s linear; }
+        .call .warning { color:#f00; font-size:2.2rem; text-align:center; margin:4rem 0; text-shadow:0 0 15px #f00; }
+        .call pre {
+            background:#000;
+            padding:1.5rem;
+            border:2px solid #0f0;
+            overflow-x:auto;
+            margin:2rem 0;
+            box-shadow:0 0 20px rgba(0,255,0,0.3);
+            font-family:'Courier New',monospace;
+        }
+        .call pre code { color:#0f0; font-size:0.95rem; line-height:1.5; background:transparent !important; }
+        .call a { color:#0f0; text-decoration:underline; }
+        .call a:hover { text-shadow:0 0 15px #0f0; animation: glitch 0.3s linear; }
+        .flyer {
+            background:#000; color:#0f0; padding:2rem; margin:3rem 0;
+            border:3px double #0f0; text-align:center; page-break-inside:avoid;
+            box-shadow:0 0 25px rgba(0,255,0,0.4);
+        }
+        .flyer h3 { margin:0 0 1rem 0; font-size:2rem; text-shadow:0 0 15px #0f0; }
+        .flyer p { margin:0.8rem 0; color:#fff; }
+        .flyer strong { color:#fff; }
+        .qr img { width:200px; height:200px; margin:1rem auto; display:block; border:2px solid #0f0; padding:5px; background:#000; }
+        @media print { body { background:#000; color:#0f0; } .call { max-width:none; } .flyer { page-break-after:always; } }
+        .call-section { background: rgba(0,255,0,0.08); border: 1px solid #0f0; padding: 3rem 2rem; box-shadow: 0 0 15px rgba(0,255,0,0.3); transition: .4s; animation: pulse 2s infinite; }
+        .call-section:hover { box-shadow: 0 0 30px rgba(0,255,0,0.6); animation: none; }
+        .call-section[data-shadow-intensity="1"] { box-shadow: 0 0 10px rgba(0,255,0,0.2); }
+        .call-section[data-shadow-intensity="2"] { box-shadow: 0 0 20px rgba(0,255,0,0.4); }
+        .call-section[data-shadow-intensity="3"] { box-shadow: 0 0 30px rgba(0,255,0,0.6); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
+            50% { box-shadow: 0 0 25px rgba(0,255,0,0.5); }
+            100% { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 #f00, -0.03em 0 0 #0f0, -0.04em 0 0 #00f; }
+            15% { text-shadow: 0.05em -0.03em 0 #f00, 0.025em 0.035em 0 #0f0, -0.05em -0.02em 0 #00f; }
+            49% { text-shadow: -0.025em 0 0 #f00, 0.025em 0 0 #0f0, 0.04em -0.02em 0 #00f; }
+            50% { text-shadow: 0.05em 0.035em 0 #f00, 0.03em 0 0 #0f0, 0 0 0 #00f; }
+            99% { text-shadow: 0.05em 0 0 #f00, -0.025em -0.04em 0 #0f0, -0.04em -0.025em 0 #00f; }
+            100% { text-shadow: 0.025em 0 0 #f00, -0.025em -0.025em 0 #0f0, -0.04em 0 0 #00f; }
+        }
+    </style>
 </body>
 </html>
