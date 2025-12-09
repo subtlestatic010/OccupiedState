@@ -158,14 +158,14 @@ Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
     </script>
     <style>
         .about { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; line-height: 1.9; display: flex; flex-direction: column; gap: 3rem; }
-        .about h2 { color:#0f0; text-shadow:0 0 20px #0f0; font-size:2.5rem; margin:4rem 0 1.5rem; text-align:center; animation: glitch 0.3s linear infinite alternate; }
+        .about h2 { color:#0f0; text-shadow:0 0 20px #0f0; font-size:2.5rem; margin:4rem 0 1.5rem; text-align:center; }
         .about p, .about li { color:#ddd; }
         .manifesto { background:#000; border:3px double #0f0; padding:4rem 2rem; margin:4rem 0; box-shadow:0 0 50px rgba(0,255,0,0.5); animation: pulse 2s infinite; }
         .manifesto p, .manifesto li { color:#0f0; text-shadow:0 0 8px #0f0; font-size:1.2rem; margin:2rem 0; text-align:center; }
-        .manifesto:hover { animation: none; box-shadow:0 0 100px rgba(0,255,0,0.8); }
+        .manifesto:hover { box-shadow:0 0 100px rgba(0,255,0,0.8); }
         .principles { list-style:none; counter-reset:principle; padding:0; }
-        .principles li { counter-increment:principle; margin:4.5rem 0; position:relative; padding-left:4rem; animation: glitch 0.3s linear infinite alternate; }
-        .principles li:hover { animation: none; text-shadow:0 0 25px #0f0; }
+        .principles li { counter-increment:principle; margin:4.5rem 0; position:relative; padding-left:4rem; }
+        .principles li:hover { text-shadow:0 0 25px #0f0; }
         .principles li::before { content:counter(principle); position:absolute; left:0; top:-0.8rem; color:#0f0; font-size:3.5rem; font-weight:bold; text-shadow:0 0 25px #0f0; animation: pulse 1s infinite; }
         .principles .parallel { display:block; font-size:0.95rem; margin-top:1rem; color:#0a8; }
         .principles .quote { display:block; margin-top:1.5rem; font-style:italic; color:#0f8; }
@@ -180,9 +180,9 @@ Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
             box-shadow:0 0 100px rgba(0,255,0,0.8);
             position:relative;
             overflow:hidden;
-            animation: pulse 2s infinite, glitch 0.5s linear infinite alternate;
+            animation: pulse 2s infinite;
         }
-        .legacy-box:hover { animation: none; box-shadow:0 0 150px rgba(0,255,0,1); }
+        .legacy-box:hover { box-shadow:0 0 150px rgba(0,255,0,1); }
         .legacy-box::before {
             content:"";
             position:absolute;
@@ -198,7 +198,6 @@ Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
             text-shadow:0 0 40px #0f0;
             margin:0 0 4rem 0;
             letter-spacing:6px;
-            animation: glitch 0.3s linear infinite alternate;
         }
         .legacy-quotes {
             counter-reset:legacy;
@@ -213,15 +212,6 @@ Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
             text-shadow:0 0 20px #0f0;
             animation: pulse 2s infinite;
         }
-        .legacy-quotes p:hover { animation: glitch 0.3s linear; }
-        .legacy-quotes p::before {
-            content:counter(legacy);
-            position:absolute;
-            left:0;
-            font-size:5rem;
-            font-weight:bold;
-            opacity:0.3;
-        }
         .legacy-quotes .author {
             display:block;
             margin-top:1.5rem;
@@ -229,27 +219,16 @@ Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
             color:#0a8;
         }
         .mono { color:#0f0; background:#000; padding:1rem; border:1px solid #0f0; font-family:monospace; word-break:break-all; box-shadow:0 0 20px rgba(0,255,0,0.3); animation: pulse 2s infinite; }
-        .mono:hover { animation: glitch 0.3s linear; }
-        .warning { color:#f00; text-align:center; font-size:2.4rem; margin:6rem 0; text-shadow:0 0 25px #f00; animation: glitch 0.5s linear infinite alternate; }
+        .warning { color:#f00; text-align:center; font-size:2.4rem; margin:6rem 0; text-shadow:0 0 25px #f00; }
         .about-section { background: rgba(0,255,0,0.08); border: 1px solid #0f0; padding: 3rem 2rem; box-shadow: 0 0 15px rgba(0,255,0,0.3); transition: .4s; animation: pulse 2s infinite; }
-        .about-section:hover { box-shadow: 0 0 40px rgba(0,255,0,0.8); animation: glitch 0.3s linear infinite alternate; }
+        .about-section:hover { box-shadow: 0 0 40px rgba(0,255,0,0.8); }
         .about-section[data-shadow-intensity="1"] { box-shadow: 0 0 10px rgba(0,255,0,0.2); }
         .about-section[data-shadow-intensity="2"] { box-shadow: 0 0 20px rgba(0,255,0,0.4); }
         .about-section[data-shadow-intensity="3"] { box-shadow: 0 0 30px rgba(0,255,0,0.6); }
-
         @keyframes pulse {
             0% { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
             50% { box-shadow: 0 0 25px rgba(0,255,0,0.5); }
             100% { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
-        }
-
-        @keyframes glitch {
-            0% { text-shadow: 0.05em 0 0 #f00, -0.03em 0 0 #0f0, -0.04em 0 0 #00f; }
-            15% { text-shadow: 0.05em -0.03em 0 #f00, 0.025em 0.035em 0 #0f0, -0.05em -0.02em 0 #00f; }
-            49% { text-shadow: -0.025em 0 0 #f00, 0.025em 0 0 #0f0, 0.04em -0.02em 0 #00f; }
-            50% { text-shadow: 0.05em 0.035em 0 #f00, 0.03em 0 0 #0f0, 0 0 0 #00f; }
-            99% { text-shadow: 0.05em 0 0 #f00, -0.025em -0.04em 0 #0f0, -0.04em -0.025em 0 #00f; }
-            100% { text-shadow: 0.025em 0 0 #f00, -0.025em -0.025em 0 #0f0, -0.04em 0 0 #00f; }
         }
     </style>
 </body>
