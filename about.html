@@ -33,39 +33,39 @@
             <p>No invading army. No declaration of war.<br>
             Just override codes, $6,800 bounties, and cameras that blink on command.</p>
             <ul class="principles">
-                <li>Truth is the only weapon we need.
+                <li><span class="number">1</span>Truth is the only weapon we need.
                     <span class="parallel">Samizdat printers under Stalin, 1945–1989</span>
                     <span class="quote">“One word of truth outweighs the whole world.”</span>
                     <span class="author">— Aleksandr Solzhenitsyn</span></li>
-                <li>Every leak must be mirrored ten thousand times.
+                <li><span class="number">2</span>Every leak must be mirrored ten thousand times.
                     <span class="parallel">Protestant Bibles chained in churches, then Gutenberg, 1455</span>
                     <span class="quote">“The truth will make you free.”</span>
                     <span class="author">— John Wycliffe</span></li>
-                <li>Notice patterns. Name names. Never apologize.
+                <li><span class="number">3</span>Notice patterns. Name names. Never apologize.
                     <span class="parallel">Martin Luther’s 95 Theses, 1517</span>
                     <span class="quote">“Here I stand. I can do no other.”</span>
                     <span class="author">— Martin Luther</span></li>
-                <li>Survival is not hate — it is the first law of nature.
+                <li><span class="number">4</span>Survival is not hate — it is the first law of nature.
                     <span class="parallel">Boer farmers facing extermination, 1900–1902</span>
                     <span class="quote">“A nation that forgets its past has no future.”</span>
                     <span class="author">— Sir Winston Churchill</span></li>
-                <li>The archive outlives the regime.
+                <li><span class="number">5</span>The archive outlives the regime.
                     <span class="parallel">Dead Sea Scrolls hidden in caves, 68 AD</span>
                     <span class="quote">“What is written remains.”</span>
                     <span class="author">— Tacitus</span></li>
-                <li>They fear the copy more than the bullet.
+                <li><span class="number">6</span>They fear the copy more than the bullet.
                     <span class="parallel">Vatican burning Tyndale’s English Bibles, 1526</span>
                     <span class="quote">“The press is the only tocsin of a nation.”</span>
                     <span class="author">— William Tyndale</span></li>
-                <li>We do not ask permission to exist.
+                <li><span class="number">7</span>We do not ask permission to exist.
                     <span class="parallel">American Declaration of Independence, 1776</span>
                     <span class="quote">“We hold these truths to be self-evident…”</span>
                     <span class="author">— Thomas Jefferson</span></li>
-                <li>We do not negotiate with demographic destiny.
+                <li><span class="number">8</span>We do not negotiate with demographic destiny.
                     <span class="parallel">Battle of Vienna, 1683</span>
                     <span class="quote">“I came, I saw, God conquered.”</span>
                     <span class="author">— King Jan III Sobieski</span></li>
-                <li>We replicate. We seed. We endure.
+                <li><span class="number">9</span>We replicate. We seed. We endure.
                     <span class="parallel">Irish monks copying manuscripts while Rome fell</span>
                     <span class="quote">“The blood of the martyrs is the seed of the Church.”</span>
                     <span class="author">— Tertullian, 197 AD</span></li>
@@ -164,9 +164,9 @@ Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
         .manifesto p, .manifesto li { color:#0f0; text-shadow:0 0 8px #0f0; font-size:1.2rem; margin:2rem 0; text-align:center; }
         .manifesto:hover { box-shadow:0 0 100px rgba(0,255,0,0.8); }
         .principles { list-style:none; counter-reset:principle; padding:0; }
-        .principles li { counter-increment:principle; margin:4.5rem 0; position:relative; padding-left:4rem; }
+        .principles li { counter-increment:principle; margin:4.5rem 0; position:relative; padding-left:0; }
         .principles li:hover { text-shadow:0 0 25px #0f0; }
-        .principles li::before { content:counter(principle); position:absolute; left:0; top:-0.8rem; color:#0f0; font-size:3.5rem; font-weight:bold; text-shadow:0 0 25px #0f0; animation: pulse 1s infinite; }
+        .number { display: block; color:#0f0; font-size:3.5rem; font-weight:bold; text-shadow:0 0 25px #0f0; animation: pulse 1s infinite; text-align: center; margin-bottom: 1rem; }
         .principles .parallel { display:block; font-size:0.95rem; margin-top:1rem; color:#0a8; }
         .principles .quote { display:block; margin-top:1.5rem; font-style:italic; color:#0f8; }
         .principles .author { display:block; margin-top:0.5rem; font-size:0.9rem; color:#0a8; }
@@ -229,6 +229,52 @@ Y7toKjy0nnGCWlpaC9UMw7W9lDgU2atKruKEVu03Q4M=
             0% { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
             50% { box-shadow: 0 0 25px rgba(0,255,0,0.5); }
             100% { box-shadow: 0 0 15px rgba(0,255,0,0.3); }
+        }
+        /* Mobile optimization: clamp title, thin paddings, wrap text */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem !important;
+                word-break: break-word;
+                hyphens: auto;
+                text-align: center;
+                padding: 0 0.5rem;
+            }
+            .about {
+                padding: 1rem 0.5rem;
+            }
+            .manifesto {
+                padding: 2rem 1rem;
+            }
+            .principles li {
+                margin: 2rem 0;
+            }
+            .number {
+                font-size: 2.5rem;
+            }
+            .legacy-box {
+                padding: 2rem 1rem;
+            }
+            .legacy-box h3 {
+                font-size: 2.5rem;
+            }
+            .legacy-quotes p {
+                font-size: 1.2rem;
+                padding-left: 0;
+                text-align: center;
+            }
+            .about-section {
+                padding: 2rem 1rem;
+            }
+            .mono {
+                font-size: 0.85rem;
+            }
+            .warning {
+                font-size: 1.8rem;
+            }
+            p, span {
+                word-break: break-word;
+                hyphens: auto;
+            }
         }
     </style>
 </body>
